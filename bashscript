@@ -1,0 +1,37 @@
+#!/bin/bash
+
+
+
+RPI="rpi01 rpi99 rpi03 rpi04 rpi05 rpi06 rpi07 rpi08 rpi09 rpi10 rpi11 rpi12 rpi13 rpi14 rpi15"
+
+
+if [ $# -eq 0 ] ; then
+
+	DIR=$RPI
+
+else
+
+	DIR=$*
+
+fi
+
+for pi in $DIR ; do
+
+
+	if ping -c 1 -W 1 $pi > /dev/null 2>&1 ; then
+
+	echo $pi "is alive"
+
+ else
+
+echo $pi "is dead"
+
+fi
+
+done
+
+ exit 0
+
+
+
+
